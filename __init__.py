@@ -40,32 +40,11 @@ def mongraphique():
 def mongraphique2():
     return render_template("histogramme.html")
 
-def get_commit_data():
-    url = "https://api.github.com/repos/Posayidon/5MCSI_Metriques/commits"
-    response = requests.get(url)
-    commits = response.json()
-
-    commit_counts = {}
-    for commit in commits:
-        commit_date = commit['commit']['author']['date']
-        date_object = datetime.strptime(commit_date, '%Y-%m-%dT%H:%M:%SZ')
-        minute = date_object.strftime('%Y-%m-%d %H:%M')
-        commit_counts[minute] = commit_counts.get(minute, 0) + 1
-    
-    data_for_chart = []
-    for minute, count in commit_counts.items():
-        data_for_chart.append([minute, count])
-    
-    return data_for_chart
 
 @app.route('/commits/')
 def show_commits():
     return render_template('commits.html')
 
-@app.route('/commits/data')
-def commits_data():
-    data = get_commit_data()
-    return jsonify(data)
   
 if __name__ == "__main__":
   app.run(debug=True)
