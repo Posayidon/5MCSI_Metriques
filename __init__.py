@@ -40,10 +40,6 @@ def mongraphique():
 def mongraphique2():
     return render_template("histogramme.html")
 
-@app.route("/commits/")
-def MaPremiereAPI():
-    return render_template("commits.html")
-
 def get_commit_data():
     url = "https://api.github.com/repos/Posayidon/5MCSI_Metriques/commits"
     response = requests.get(url)
