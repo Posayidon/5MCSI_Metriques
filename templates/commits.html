@@ -29,7 +29,7 @@
     chart.draw(dataTable, options);
   }
   // Récupération de données depuis notre API /paris/
-  fetch('/extract-minutes/<date_string>')
+  fetch('/extract-minutes/')
     .then(response => response.json())
     .then(data => {
       drawChart(data);
