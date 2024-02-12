@@ -5,9 +5,6 @@ from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
 import requests
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
 
                                                                                                                                        
 app = Flask(__name__)                                                                                                                  
