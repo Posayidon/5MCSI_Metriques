@@ -39,7 +39,7 @@ def mongraphique2():
 
 
 @app.route('/commits/')
-def show_commits():
+def moncommits():
     return render_template('commits.html')
 
   
